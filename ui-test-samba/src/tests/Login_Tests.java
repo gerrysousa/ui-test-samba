@@ -1,12 +1,11 @@
 package tests;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import core.Base_Test;
-import core.DriverFactory;
+import static core.DriverFactory.getDriver;
 import pages.Login_Page;
 
 public class Login_Tests extends Base_Test {
@@ -16,21 +15,56 @@ public class Login_Tests extends Base_Test {
 	
 	@Before
 	public void inicializaTeste() {
-		//driver.get("http://www.google.com.br");
-		DriverFactory.getDriver().get("http://web1.qa.sambatech.com:10000");
-		 login = new Login_Page();
-		
+		getDriver().get("http://web1.qa.sambatech.com:10000");
+		login = new Login_Page();		
 	}
 	
+	
+	/*@Test
+	public void deveLogarComSucesso() throws InterruptedException{
+		login.fazerLogin("avaliacao_qa_samba@sambatech.com.br", "123456789");
+		
+		Assert.assertTrue(login.verficarSeLogouComSucesso());			
+	}*/
 	
 	@Test
-	public void deveLogarComSucesso(){
-		login.setEmail("avaliacao_qa_samba@sambatech.com.br");
-		login.setSenha("123456789");
+	public void deveValidarLoginSemEmailESenha() throws InterruptedException{
 		login.entrar();
 		
-		
+		Assert.assertTrue(login.verificarAlerta("Email ou senha incorretos."));			
 	}
+	
+	@Test
+	public void deveValidarLoginSemEmail() throws InterruptedException{
+		login.setSenha("ssssss");
+		login.entrar();
+		
+		Assert.assertTrue(login.verificarAlerta("Email ou senha incorretos."));			
+	}
+	
+	@Test
+	public void deveValidarLoginSemSenha() throws InterruptedException{
+		login.setEmail("avaliacao_qa_samba@sambatech.com.br");
+		login.entrar();
+		
+		Assert.assertTrue(login.verificarAlerta("Email ou senha incorretos."));			
+	}
+	
+	@Test
+	public void deveValidarLoginComSenhaInvalida() throws InterruptedException{
+		login.fazerLogin("avaliacao_qa_samba@sambatech.com.br", "123456789");
+		login.entrar();
+		
+		Assert.assertTrue(login.verificarAlerta("Email ou senha incorretos."));			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 

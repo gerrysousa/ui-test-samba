@@ -1,6 +1,11 @@
 package pages;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import core.Base_Page;
+import core.DriverFactory;
+
+import static core.DriverFactory.getDriver;
 
 public class Login_Page extends Base_Page {
 	
@@ -16,18 +21,23 @@ public class Login_Page extends Base_Page {
 		clicar(By.id("login"));
 	}
 
-}
-
-/*public class Login_Page {
-
-public static void main(String[] args) {
-
-	WebDriver driver = new FirefoxDriver(); //Cria uma nova instancia;
-	driver.get("http://quatest.com.br"); //sintaxe para abrir FIREFOX (O único drive instalado no momento é do firefox);
-	String i = driver.getCurrentUrl(); //Cria String i que é igual a getCurrentUrl: pega a url aberta no firefox;
-	System.out.println(i); //Mostra resultado obtido pela String i;
-	driver.close(); //Fecha navegador;
-
+	public void fazerLogin(String email, String senha) {
+		setEmail(email);
+		setSenha(senha);
+		entrar();
 	}
+	
+	public boolean verficarSeLogouComSucesso() throws InterruptedException {
+		Thread.sleep(15000);
+		boolean existe = getDriver().getPageSource().contains("Processo Seletivo");
+		return	existe;
+	}
+	
+	public boolean verificarAlerta(String alerta) throws InterruptedException {
+		
+		//Thread.sleep(15000);Incorrect email or password. 
+		boolean existe = getDriver().getPageSource().contains(alerta);
+		return	existe;
+	}
+	
 }
-*/
