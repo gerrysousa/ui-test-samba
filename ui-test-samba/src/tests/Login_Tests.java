@@ -20,12 +20,12 @@ public class Login_Tests extends Base_Test {
 	}
 	
 	
-	/*@Test
+	@Test
 	public void deveLogarComSucesso() throws InterruptedException{
 		login.fazerLogin("avaliacao_qa_samba@sambatech.com.br", "123456789");
 		
 		Assert.assertTrue(login.verficarSeLogouComSucesso());			
-	}*/
+	}
 	
 	@Test
 	public void deveValidarLoginSemEmailESenha() throws InterruptedException{
@@ -52,38 +52,10 @@ public class Login_Tests extends Base_Test {
 	
 	@Test
 	public void deveValidarLoginComSenhaInvalida() throws InterruptedException{
-		login.fazerLogin("avaliacao_qa_samba@sambatech.com.br", "123456789");
+		login.fazerLogin("avaliacao_qa_samba@sambatech.com.br", "errado");
 		login.entrar();
 		
 		Assert.assertTrue(login.verificarAlerta("Email ou senha incorretos."));			
-	}
-	
-	
-	
-	
-	
-	
-	
+	}	
 	
 }
-
-
-
-
-
-/*	public static void main(String[] args) {
-
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-		
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.flipkart.com/");
-		
-		
-		/*WebDriver driver = new ChromeDriver(); //Cria uma nova instancia;
-		driver.get("http://quatest.com.br"); //sintaxe para abrir FIREFOX (O único drive instalado no momento é do firefox);
-		String i = driver.getCurrentUrl(); //Cria String i que é igual a getCurrentUrl: pega a url aberta no firefox;
-		System.out.println(i); //Mostra resultado obtido pela String i;
-		driver.close(); //Fecha navegador;
-*/
-		
-

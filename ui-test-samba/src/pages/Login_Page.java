@@ -1,10 +1,6 @@
 package pages;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import core.Base_Page;
-import core.DriverFactory;
-
 import static core.DriverFactory.getDriver;
 
 public class Login_Page extends Base_Page {
