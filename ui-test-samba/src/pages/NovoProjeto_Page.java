@@ -1,19 +1,17 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import static core.DriverFactory.getDriver;
 
 import core.Base_Page;
-import core.DriverFactory;
+
 
 public class NovoProjeto_Page extends Base_Page {
 
 	public void setNomeProjeto(String nome) {
-		WebElement nomeProj = DriverFactory.getDriver().findElement(By.cssSelector("#modalContainer > div > div.modal-body > form > div:nth-child(2) > input"));
-		nomeProj.sendKeys(("Astros"));
+		//WebElement webElement = DriverFactory.getDriver().findElement(By.xpath("//*[@id=\"modalContainer\"]/div/div[2]/form/div[2]/input"));
+		//webElement.sendKeys("Astros");
 		//driver.findElement(By.cssSelector(".alert.alert-success"));
-		//escrever(By.name("name"), nome);
+		escrever(By.name("name"), nome);
 	}
 
 	public void setDescricao(String descricao) {
@@ -21,7 +19,7 @@ public class NovoProjeto_Page extends Base_Page {
 	}
 	
 	public void botao_criarProjeto() {
-		clicar(By.id("login"));
+		clicar(By.xpath("//*[@id=\"modalContainer\"]/div/div[3]/button"));
 	}
 	
 	

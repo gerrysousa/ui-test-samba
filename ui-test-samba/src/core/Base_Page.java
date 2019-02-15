@@ -43,6 +43,12 @@ public class Base_Page {
 		return obterTexto(By.id("id/message"));
 	}
 	
+	public void esperar(int num) throws InterruptedException {
+		Thread.sleep(num);
+	}
+	
+	
+	
 
 	
 }

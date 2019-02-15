@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import core.Base_Page;
-import static core.DriverFactory.getDriver;
+
 
 public class MenuSuperior_Page extends Base_Page{
 

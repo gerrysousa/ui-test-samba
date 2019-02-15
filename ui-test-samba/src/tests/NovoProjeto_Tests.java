@@ -1,7 +1,6 @@
 package tests;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,6 +23,7 @@ public class NovoProjeto_Tests extends Base_Test {
 		getDriver().get("http://web1.qa.sambatech.com:10000");
 		login = new Login_Page();		
 		menu = new MenuSuperior_Page();
+		projeto = new NovoProjeto_Page();
 		login.fazerLogin("avaliacao_qa_samba@sambatech.com.br", "123456789");
 		login.verficarSeLogouComSucesso();
 	}
@@ -36,6 +36,7 @@ public class NovoProjeto_Tests extends Base_Test {
 	@Test
 	public void deveCadastrarProjetoComSucesso() {
 		menu.criarProjeto();
+		esperar(3000);
 		projeto.cadastrarProjeto("Projeto Nome", "Descricao do projeto");
 		
 		//Assert.assertTrue(login.verficarSeLogouComSucesso());			
