@@ -1,21 +1,24 @@
 package tests;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import core.Base_Test;
+import pages.AlternarProjeto_Page;
 import pages.Login_Page;
 import pages.MenuSuperior_Page;
 import pages.NovoProjeto_Page;
-
 import static core.DriverFactory.getDriver;
+
 
 public class NovoProjeto_Tests extends Base_Test {
 
 	private NovoProjeto_Page projeto;
 	private Login_Page login;
 	private MenuSuperior_Page menu;
+	private AlternarProjeto_Page alternarProjeto;
 	//private static WebDriver driver;
 	
 	@Before
@@ -24,6 +27,7 @@ public class NovoProjeto_Tests extends Base_Test {
 		login = new Login_Page();		
 		menu = new MenuSuperior_Page();
 		projeto = new NovoProjeto_Page();
+		alternarProjeto = new AlternarProjeto_Page();
 		login.fazerLogin("avaliacao_qa_samba@sambatech.com.br", "123456789");
 		login.verficarSeLogouComSucesso();
 	}
@@ -34,11 +38,14 @@ public class NovoProjeto_Tests extends Base_Test {
 	}
 	
 	@Test
-	public void deveCadastrarProjetoComSucesso() {
+	public void deveCadastrarProjetoComSucesso() throws InterruptedException {
 		menu.criarProjeto();
 		esperar(3000);
-		projeto.cadastrarProjeto("Projeto Nome", "Descricao do projeto");
+		String projetoName = "Projeto Nome "+faker();
 		
-		//Assert.assertTrue(login.verficarSeLogouComSucesso());			
+		projeto.cadastrarProjeto(projetoName, "Descricao do projeto");
+		esperar(6000);
+		menu.alternarProjeto();
+		Assert.assertTrue(alternarProjeto.verficarSeProjetoExiste(projetoName));			
 	}
 }
