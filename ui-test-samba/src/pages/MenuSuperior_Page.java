@@ -59,4 +59,10 @@ public class MenuSuperior_Page extends Base_Page{
 		clicar(By.id("change_project"));
 	}
 	
+	public String obterProjetoAtual() {
+		String projetoAtual = obterTexto(By.id("navbar-project-name"));
+
+		return projetoAtual;
+	}
+	
 }
