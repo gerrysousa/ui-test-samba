@@ -4,15 +4,18 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DriverFactory {
 	
 	private static WebDriver driver;
 
-   	public static WebDriver getDriver() {
+   	public static WebDriver getDriver() {   		
 		if (driver == null) {
 			 createDrive();
 		}
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
 		return driver;
 	}
 
@@ -26,7 +29,7 @@ public class DriverFactory {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 	}	
 

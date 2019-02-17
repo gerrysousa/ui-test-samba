@@ -5,20 +5,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
 import core.Base_Test;
 import pages.AlternarProjeto_Page;
 import pages.Login_Page;
 import pages.MenuSuperior_Page;
 import pages.NovoProjeto_Page;
 import static core.DriverFactory.getDriver;
-
-import java.util.List;
-
 
 public class Projeto_Tests extends Base_Test {
 
@@ -45,14 +37,13 @@ public class Projeto_Tests extends Base_Test {
 	}
 	
 	@Test
-	public void deveCadastrarProjetoComSucesso() throws InterruptedException {
+	public void deveCadastrarProjetoComSucesso(){
 		menu.criarProjeto();
-		esperar(3000);
 		String projetoName = "Projeto Nome "+faker();
-		
 		projeto.cadastrarProjeto(projetoName, "Descricao do projeto");
 		esperar(6000);
 		menu.alternarProjeto();
+		alternarProjeto.pesquisaNomeProjeto(projetoName);
 		Assert.assertTrue(alternarProjeto.verficarSeProjetoExiste(projetoName));	
 		alternarProjeto.botao_cancelarAlternar();
 	}

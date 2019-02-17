@@ -14,9 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 public class Base_Test {
 
 	@Rule
-	public TestName testName = new TestName();
-	
-	
+	public TestName testName = new TestName();	
 	
 	@AfterClass
 	public static void finalizaClasse() {

@@ -3,7 +3,6 @@ package tests;
 import static core.DriverFactory.getDriver;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,8 +34,9 @@ public class Campanha_Tests extends Base_Test {
 	
 	@Test
 	public void deveCadastrarCampanhaComSucesso() throws InterruptedException {
+		
 		menu.criarCampanha();
-		esperar(1000);
+		//esperar(1000);
 		String campanhaNome = "Campanha de "+faker();
 		
 		String urlDestino = "https://globoesporte.globo.com/futebol/brasileirao-serie-a/", 
@@ -48,7 +48,18 @@ public class Campanha_Tests extends Base_Test {
 		
 		
 		
-		campanha.cadastrarCampanha(campanhaNome, urlDestino, urlRatrea, dataInicio, dataFim, meta, valor);
+		//campanha.cadastrarCampanha(campanhaNome, urlDestino, urlRatrea, dataInicio, dataFim, meta, valor);
+		campanha.setNomeCampanha(campanhaNome);
+		campanha.setUrlDestino(urlDestino);
+		campanha.setUrlRastreamento(urlRatrea);
+		//campanha.anexarVideo("teste.mp4");
+		campanha.btn_SelecionarCategorias();
+		campanha.setDataInicio(dataInicio);
+		campanha.setDataFim(dataFim);
+		campanha.setMeta(meta);
+		campanha.setValor(valor);
+		campanha.btn_criarCampanha();
+		
 		esperar(6000);
 		
 		//Assert.assertTrue(alternarProjeto.verficarSeProjetoExiste(projetoName));	

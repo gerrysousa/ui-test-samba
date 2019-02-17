@@ -1,5 +1,7 @@
 package pages;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import core.Base_Page;
 import static core.DriverFactory.getDriver;
 
@@ -23,16 +25,16 @@ public class Login_Page extends Base_Page {
 		entrar();
 	}
 	
-	public boolean verficarSeLogouComSucesso() throws InterruptedException {
-		Thread.sleep(15000);
+	public boolean verficarSeLogouComSucesso() {
+		clicar(By.id("mn-dashboard"));
 		boolean existe = getDriver().getPageSource().contains("Processo Seletivo");
+		
 		return	existe;
 	}
 	
-	public boolean verificarAlerta(String alerta) throws InterruptedException {
-		
-		//Thread.sleep(15000);Incorrect email or password. 
+	public boolean verificarAlerta(String alerta){
 		boolean existe = getDriver().getPageSource().contains(alerta);
+		
 		return	existe;
 	}
 	
