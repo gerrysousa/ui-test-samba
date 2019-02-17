@@ -65,4 +65,11 @@ public class MenuSuperior_Page extends Base_Page{
 		return projetoAtual;
 	}
 	
+	public void criarCampanha() {
+		acessarMonetizacao();
+		clicar(By.id("create-campaign"));
+	}
+	
+	
+	
 }
