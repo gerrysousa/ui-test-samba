@@ -51,39 +51,10 @@ public class Projeto_Tests extends Base_Test {
 	@Test
 	public void deveAlternarDeProjetoComSucesso() throws InterruptedException {
 		String projeto_um = menu.obterProjetoAtual();
-		/*menu.criarProjeto();
-		esperar(3000);
-		String projetoName = "Projeto Nome "+faker();		
-		projeto.cadastrarProjeto(projetoName, "Descricao do projeto");
-		esperar(6000);*/
 		menu.alternarProjeto();
 		alternarProjeto.pesquisaNomeProjeto("Projeto Nome 2019-02-16T12:17:37.41");//dadasdsadaaaaaaaaaaaaaaaaaaaaaaadas
 		esperar(2000);
-		
-		
-		/*WebElement actionBtn=driver2.findElement(
-				  By.xpath("//span[contains(@class,'v-menubar-menuitem-caption')
-				  and contains(text(), 'Actions')]")
-				);
-				actionBtn.click();*/
-		
-		
-		
-		
 		getDriver().findElement(By.cssSelector("#project_819 > span")).click();
-		////*[@id="project_819"]/span
-		
-	
-		
-	//	WebElement element = getDriver().findElement(By.id("project_819"));//Enter ID for the element. You can use Name, xpath, cssSelector whatever you like
-		//element.sendKeys(Keys.TAB);
-			
-		
-		
-		
-		//element.sendKeys(Keys.ENTER);
-		
-		//alternarProjeto.clicarTexto("Novo Projeto");
 		alternarProjeto.botao_alternarProjeto();
 		esperar(3000);
 

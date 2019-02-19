@@ -51,10 +51,5 @@ public class Base_Test {
 	    String faker = aux.substring(0, aux.length() - 3);
 	    
 	    return faker;
-	}
-	    
-	    
-	
-	
-	
+	}	
 }

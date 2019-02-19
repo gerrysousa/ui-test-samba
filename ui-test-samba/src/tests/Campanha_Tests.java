@@ -29,7 +29,7 @@ public class Campanha_Tests extends Base_Test {
 	
 	@After
 	public void depois() {
-		//menu.fazerLogout();
+		menu.fazerLogout();
 	}
 	
 	@Test
@@ -45,8 +45,6 @@ public class Campanha_Tests extends Base_Test {
 		dataFim="18/10/2019", 
 		meta="20", 
 		valor="2";
-		
-		
 		
 		//campanha.cadastrarCampanha(campanhaNome, urlDestino, urlRatrea, dataInicio, dataFim, meta, valor);
 		campanha.setNomeCampanha(campanhaNome);

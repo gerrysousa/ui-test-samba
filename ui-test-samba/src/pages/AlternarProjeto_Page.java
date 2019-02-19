@@ -21,12 +21,8 @@ public class AlternarProjeto_Page extends Base_Page {
 	}
 	
 	public boolean verficarSeProjetoExiste(String nomeProjeto){
-		
 		boolean existe = getDriver().getPageSource().contains(nomeProjeto);
 		
 		return	existe;
 	}
-	
-	
-	
 }
