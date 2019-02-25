@@ -20,12 +20,9 @@ public class AlternarProjeto_Page extends Base_Page {
 		clicar(By.xpath("//*[@id=\"modalContainer\"]/div/div[3]/a"));		
 	}
 	
-	public boolean verficarSeProjetoExiste(String nomeProjeto) throws InterruptedException {
-		Thread.sleep(5000);
+	public boolean verficarSeProjetoExiste(String nomeProjeto){
 		boolean existe = getDriver().getPageSource().contains(nomeProjeto);
+		
 		return	existe;
 	}
-	
-	
-	
 }
